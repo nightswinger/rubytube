@@ -2,18 +2,16 @@ module RubyTube
   module Request
     module_function
 
-    def get(url, options)
+    def get(url, options = {})
       send(:get, url, options)
     end
 
-    def post(url, options)
+    def post(url, options = {})
       send(:post, url, options)
     end
 
     def send(method, url, options = {})
-      headers = {
-        'Content-Type': 'application/json',
-      }
+      headers = { 'Content-Type': 'text/html' }
       options[:headers] && headers.merge!(options[:headers])
 
       connection = Faraday.new(url)
@@ -22,7 +20,8 @@ module RubyTube
         options[:query] && req.params = options[:query] 
         options[:data] && req.body = JSON.dump(options[:data])
       end
-      JSON.parse(response.body)
+      p response.status
+      response.body
     end
   end
 end

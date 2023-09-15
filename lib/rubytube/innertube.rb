@@ -44,7 +44,9 @@ module RubyTube
         query.delete(:key)
       end
 
-      headers = {}
+      headers = {
+        'Content-Type': 'application/json',
+      }
 
       if use_oauth
         if access_token
@@ -66,7 +68,8 @@ module RubyTube
       }.merge(query)
       options[:data] = data
 
-      Request.post(endpoint, options)
+      resp = Request.post(endpoint, options)
+      JSON.parse(resp)
     end
 
     def player(video_id)
