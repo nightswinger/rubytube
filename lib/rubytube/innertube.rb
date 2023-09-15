@@ -44,9 +44,7 @@ module RubyTube
         query.delete(:key)
       end
 
-      headers = {
-        'Content-Type': 'application/json',
-      }
+      headers = {}
 
       if use_oauth
         if access_token
@@ -58,19 +56,17 @@ module RubyTube
         end
       end
 
-      headers.merge!(header)
+      options = {}
+      options[:headers] = headers.merge(header)
 
-      connection = Faraday.new(endpoint)
-      response = connection.post do |req|
-        req.params = {
-          key: api_key,
-          contentCheckOk: true,
-          racyCheckOk: true,
-        }.merge(query)
-        req.headers = headers
-        req.body = JSON.dump(data)
-      end
-      JSON.parse(response.body)
+      options[:query] = {
+        key: api_key,
+        contentCheckOk: true,
+        racyCheckOk: true,
+      }.merge(query)
+      options[:data] = data
+
+      Request.post(endpoint, options)
     end
 
     def player(video_id)
