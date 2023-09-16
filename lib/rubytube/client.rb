@@ -21,7 +21,31 @@ module RubyTube
     end
 
     def check_availability
-      # TODO:
+      status, messages = Extractor.playability_status(watch_html)
+
+      messages.each do |reason|
+        case status
+        when 'UNPLAYABLE'
+          case reason
+          when 'Join this channel to get access to members-only content like this video, and other exclusive perks.'
+            raise MembersOnly.new(video_id)
+          when 'This live stream recording is not available.'
+            raise RecordingUnavailable.new(video_id)
+          else
+            raise VideoUnavailable.new(video_id)
+          end
+        when 'LOGIN_REQUIRED'
+          if reason == 'This is a private video. Please sign in to verify that you may see it.'
+            raise VideoPrivate.new(video_id)
+          end
+        when 'ERROR'
+          if reason == 'Video unavailable'
+            raise VideoUnavailable.new(video_id)
+          end
+        when 'LIVE_STREAM'
+          raise LiveStreamError.new(video_id)
+        end
+      end
     end
 
     def vid_info
