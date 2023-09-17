@@ -89,6 +89,13 @@ module RubyTube
       end
     end
 
+    def streams
+      return @streams if @streams
+
+      check_availability
+      @streams = StreamQuery.new(fmt_streams)
+    end
+
     def vid_info
       return @vid_info if @vid_info
 
