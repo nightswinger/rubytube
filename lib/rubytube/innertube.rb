@@ -10,6 +10,17 @@ module RubyTube
         },
         header: { 'User-Agent': 'Mozilla/5.0' },
         api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
+      },
+      'ANDROID_MUSIC' => {
+        context: {
+          client: {
+            clientName: 'ANDROID_MUSIC',
+            clientVersion: '5.16.51',
+            androidSdkVersion: 30,
+          },
+        },
+        header: { 'User-Agent': 'com.google.android.apps.youtube.music/'},
+        api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
       }
     }
 
@@ -17,7 +28,7 @@ module RubyTube
 
     attr_accessor :context, :header, :api_key, :access_token, :refresh_token, :use_oauth, :allow_cache, :expires
 
-    def initialize(client: 'WEB', use_oauth: false, allow_cache: false)
+    def initialize(client: 'ANDROID_MUSIC', use_oauth: false, allow_cache: false)
       self.context = DEFALUT_CLIENTS[client][:context]
       self.header  = DEFALUT_CLIENTS[client][:header]
       self.api_key = DEFALUT_CLIENTS[client][:api_key]
