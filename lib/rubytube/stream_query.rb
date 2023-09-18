@@ -6,7 +6,7 @@ module RubyTube
       @streams = fmt_streams
     end
 
-    def filter(file_extension:, only_audio: false, only_video: false)
+    def filter(file_extension: nil, only_audio: false, only_video: false)
       filters = []
 
       filters << ->(stream) { stream.subtype == file_extension } if file_extension
@@ -23,6 +23,10 @@ module RubyTube
 
     def first
       streams.first
+    end
+
+    def get_by_itag(itag)
+      streams.find { |s| s.itag == itag }
     end
   end
 end
