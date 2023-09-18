@@ -1,8 +1,9 @@
 module RubyTube
-  class StreamQuery
+  class StreamQuery < Array
     attr_reader :streams
 
     def initialize(fmt_streams)
+      super
       @streams = fmt_streams
     end
 
