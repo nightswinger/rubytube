@@ -37,6 +37,16 @@ module RubyTube
         "https://youtube.com#{base_js}"
       end
 
+      def mime_type_codec(mime_type_codec)
+        pattern = %r{(\w+\/\w+)\;\scodecs=\"([a-zA-Z\-0-9.,\s]*)\"}
+        results = mime_type_codec.match(pattern)
+      
+        raise RegexMatchError.new("mime_type_codec, pattern=#{pattern}") if results.nil?
+      
+        mime_type, codecs = results.captures
+        [mime_type, codecs.split(",").map(&:strip)]
+      end
+
       def get_ytplayer_js(html)
         js_url_patterns = [
           %r{(/s/player/[\w\d]+/[\w\d_/.]+/base\.js)},

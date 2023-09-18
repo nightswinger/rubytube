@@ -20,6 +20,7 @@ module RubyTube
   class Error < StandardError; end
   class HTMLParseError < StandardError; end
   class ExtractError < StandardError; end
+  class MaxRetriesExceeded < StandardError; end
 
   class RegexMatchError < StandardError
     def initialize(caller, pattern)
