@@ -118,5 +118,12 @@ module RubyTube
       @length = vid_info['videoDetails']['lengthSeconds'].to_i
       @length
     end
+
+    def views
+      return @views if @views
+
+      @views = vid_info['videoDetails']['viewCount'].to_i
+      @views
+    end
   end
 end
