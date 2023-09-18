@@ -33,6 +33,14 @@ module RubyTube
       file_path
     end
 
+    def is_audio?
+      type == 'audio'
+    end
+
+    def is_video?
+      type == 'video'
+    end
+
     private
 
     def get_file_path(filename, output_dir, prefix = '')
