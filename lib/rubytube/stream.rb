@@ -1,6 +1,17 @@
 module RubyTube
   class Stream
-    attr_accessor :monostate, :url, :itag, :mime_type, :codecs, :type, :subtype, :file_size
+    attr_accessor(
+      :monostate,
+      :url,
+      :itag,
+      :mime_type,
+      :codecs,
+      :type,
+      :subtype,
+      :file_size,
+      :is_otf,
+      :bitrate
+    )
 
     def initialize(stream, monostate)
       self.monostate = monostate
@@ -11,11 +22,16 @@ module RubyTube
       self.mime_type, self.codecs = Extractor.mime_type_codec(stream['mimeType'])
       self.type, self.subtype = mime_type.split('/')
 
+      self.is_otf = stream['is_otf']
+      self.bitrate = stream['bitrate']
+
       self.file_size = stream.fetch('contentLength', 0).to_i
     end
 
     def download(filename: nil, output_dir: nil)
       file_path = get_file_path(filename, output_dir)
+
+      return file_path if File.exist?(file_path)
 
       bytes_remaining = file_size
 
@@ -39,6 +55,10 @@ module RubyTube
 
     def is_video?
       type == 'video'
+    end
+
+    def title
+      monostate.title
     end
 
     private
