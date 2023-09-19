@@ -34,6 +34,9 @@ module RubyTube
 
     def streaming_data
       return vid_info['streamingData'] if vid_info && vid_info.key?('streamingData')
+
+      bypass_age_gate
+      vid_info['streamingData']
     end
 
     def fmt_streams
@@ -103,6 +106,18 @@ module RubyTube
       @vid_info = it.player(video_id)
 
       @vid_info
+    end
+
+    def bypass_age_gate
+      it = InnerTube.new(client: 'ANDROID_EMBED')
+      resp = it.player(video_id)
+
+      status = resp['playabilityStatus']['status']
+      if status == 'UNPLAYABLE'
+        raise VideoUnavailable.new(video_id)
+      end
+
+      @vid_info = resp
     end
 
     def title

@@ -21,7 +21,19 @@ module RubyTube
         },
         header: { 'User-Agent': 'com.google.android.apps.youtube.music/'},
         api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
-      }
+      },
+      'ANDROID_EMBED' => {
+        context: {
+            client: {
+                clientName: 'ANDROID_EMBEDDED_PLAYER',
+                clientVersion: '17.31.35',
+                clientScreen: 'EMBED',
+                androidSdkVersion: 30,
+            }
+        },
+        header: { 'User-Agent': 'com.google.android.youtube/' },
+        api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
+      },
     }
 
     BASE_URL = 'https://www.youtube.com/youtubei/v1'
