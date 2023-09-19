@@ -125,5 +125,26 @@ module RubyTube
       @views = vid_info['videoDetails']['viewCount'].to_i
       @views
     end
+
+    def author
+      return @author if @author
+
+      @author = vid_info['videoDetails']['author']
+      @author
+    end
+
+    def keywords
+      return @keywords if @keywords
+
+      @keywords = vid_info['videoDetails']['keywords']
+      @keywords
+    end
+
+    def channel_id
+      return @channel_id if @channel_id
+
+      @channel_id = vid_info['videoDetails']['channelId']
+      @channel_id
+    end
   end
 end
