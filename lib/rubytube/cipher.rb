@@ -5,7 +5,7 @@ module RubyTube
     def initialize(js)
       self.transform_plan = get_transform_plan(js)
 
-      var_regex = /^\w+\W/
+      var_regex = %r"^\$*\w+\W"
       var_match = @transform_plan[0].match(var_regex)
       
       if var_match.nil?
