@@ -15,5 +15,5 @@ require 'rubytube'
 video = RubyTube.new('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
 
 # Download video
-video.download(filename: 'my_video.mp4')
+video.streams.first.download
 ```
