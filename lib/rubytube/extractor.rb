@@ -113,6 +113,21 @@ module RubyTube
           end
 
           signature = cipher.get_signature(stream['s'])
+
+          parsed_url = URI.parse(url)
+
+          query_params = CGI.parse(parsed_url.query)
+          query_params.transform_values!(&:first)
+          query_params['sig'] = signature
+          unless query_params.key?('ratebypass')
+            initial_n = query_params['n'].split('')
+            new_n = cipher.calculate_n(initial_n)
+            query_params['n'] = new_n
+          end
+
+          url = "#{parsed_url.scheme}://#{parsed_url.host}#{parsed_url.path}?#{URI.encode_www_form(query_params)}"
+
+          stream_manifest[i]["url"] = url
         end
       end
 
