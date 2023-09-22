@@ -99,6 +99,14 @@ module RubyTube
       @streams = StreamQuery.new(fmt_streams)
     end
 
+    def thumbnail_url
+      thumbs = vid_info.fetch('videoDetails', {}).fetch('thumbnail', {}).fetch('thumbnails', [])
+
+      return thumbs[-1]['url'] if thumbs.size > 0
+
+      "https://img.youtube.com/vi/#{ideo_id}/maxresdefault.jpg"
+    end
+
     def vid_info
       return @vid_info if @vid_info
 
