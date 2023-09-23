@@ -29,5 +29,9 @@ module RubyTube
     def get_by_itag(itag)
       streams.find { |s| s.itag == itag }
     end
+
+    def get_by_resolution(resolution)
+      streams.find { |s| s.resolution == resolution }
+    end
   end
 end

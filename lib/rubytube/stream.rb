@@ -61,6 +61,10 @@ module RubyTube
       monostate.title
     end
 
+    def resolution
+      stream_format.resolution
+    end
+
     private
 
     def get_file_path(filename, output_dir, prefix = '')
@@ -76,6 +80,10 @@ module RubyTube
 
     def default_filename
       "#{monostate.title}.#{subtype}"
+    end
+
+    def stream_format
+      @stream_format ||= StreamFormat.new(itag)
     end
   end
 end
