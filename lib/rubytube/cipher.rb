@@ -140,7 +140,7 @@ module RubyTube
       mapper
     end
 
-    def reverse(arr)
+    def reverse(arr, _ = nil)
       # Ruby equivalent of JavaScript's Array.reverse()
       arr.reverse!
     end
@@ -155,6 +155,7 @@ module RubyTube
       temp = arr[0]
       arr[0] = arr[index.to_i % arr.length]
       arr[index.to_i % arr.length] = temp
+      arr
     end
 
     def push(arr, val)
