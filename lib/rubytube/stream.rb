@@ -57,6 +57,14 @@ module RubyTube
       type == 'video'
     end
 
+    def is_adaptive?
+      codecs.size % 2 == 1
+    end
+
+    def is_progressive?
+      !is_adaptive?
+    end
+
     def title
       monostate.title
     end
