@@ -7,20 +7,22 @@ module RubyTube
       @streams = fmt_streams
     end
 
-    def filter(file_extension: nil, only_audio: false, only_video: false, resolution: nil)
+    def filter(file_extension: nil, only_audio: false, only_video: false, resolution: nil, progressive: false, adaptive: false)
       filters = []
 
       filters << ->(stream) { stream.subtype == file_extension } if file_extension
       filters << ->(stream) { stream.is_audio? } if only_audio
       filters << ->(stream) { stream.is_video? } if only_video
       filters << ->(stream) { stream.resolution == resolution } if resolution
+      filters << ->(stream) { stream.is_progressive? } if progressive
+      filters << ->(stream) { stream.is_adaptive? } if adaptive
 
       r = streams
       filters.each do |f|
         r = r.select(&f)
       end
 
-      r
+      StreamQuery.new(r)
     end
 
     def first
