@@ -25,10 +25,6 @@ module RubyTube
       StreamQuery.new(r)
     end
 
-    def first
-      streams.first
-    end
-
     def get_by_itag(itag)
       streams.find { |s| s.itag == itag }
     end
