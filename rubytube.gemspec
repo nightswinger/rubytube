@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["nightswinger"]
   spec.email = ["stardustkids83@gmail.com"]
 
-  spec.summary = "Write a short summary, because RubyGems requires one."
-  spec.description = "Write a longer description or delete this line."
+  spec.summary = "RubyTube is a Ruby adaptation of pytube, enabling simplified downloading and streaming of YouTube videos in a Ruby-friendly manner."
   spec.homepage = "https://github.com/nightswinger/rubytube"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
