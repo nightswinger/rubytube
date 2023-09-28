@@ -23,6 +23,7 @@ module RubyTube
   class ExtractError < StandardError; end
   class MaxRetriesExceeded < StandardError; end
   class VideoUnavailable < StandardError; end
+  class InvalidArgumentError < ArgumentError; end
 
   class RegexMatchError < StandardError
     def initialize(caller, pattern)
