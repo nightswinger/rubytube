@@ -16,4 +16,11 @@ video = RubyTube.new('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
 
 # Download video
 video.streams.first.download
+
+# Filtering streams
+video.streams
+  .filter(progressive: true, file_extension: 'mp4')
+  .order(resolution: :desc)
+  .first
+  .download
 ```
