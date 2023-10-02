@@ -1,5 +1,7 @@
 # RubyTube
 
+[![Gem Version](https://badge.fury.io/rb/rubytube.svg)](https://badge.fury.io/rb/rubytube)
+
 RubyTube is a Ruby implementation of the popular Python library, pytube. This library facilitates the downloading and streaming of YouTube videos, offering the robust functionality of pytube in a Ruby-friendly format.
 
 ## Installation
