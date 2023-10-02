@@ -33,6 +33,10 @@ module RubyTube
       streams.find { |s| s.resolution == resolution }
     end
 
+    def get_highest_resolution
+      order(resolution: :desc).first
+    end
+
     def order(arg)
       case arg
       when Symbol
