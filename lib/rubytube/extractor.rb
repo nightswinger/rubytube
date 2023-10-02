@@ -27,6 +27,12 @@ module RubyTube
         return Utils.regex_search(/(?:v=|\/)([0-9A-Za-z_-]{11}).*/, url, 1)
       end
 
+      def playlist_id(url)
+        parsed = URI.parse(url)
+        params = CGI.parse(parsed.query || '')
+        params['list']&.first
+      end
+
       def js_url(html)
         begin
           base_js = get_ytplayer_config(html)['assets']['js']
@@ -152,6 +158,23 @@ module RubyTube
         end
 
         formats
+      end
+
+      def initial_data(watch_html)
+        patterns = [
+          %r"window\[['\"]ytInitialData['\"]\]\s*=\s*",
+          %r"ytInitialData\s*=\s*"
+        ]
+      
+        patterns.each do |pattern|
+          begin
+            return Parser.parse_for_object(watch_html, pattern)
+          rescue HTMLParseError
+            next
+          end
+        end
+      
+        raise RegexMatchError.new('initial_data', 'initial_data_pattern')
       end
 
       private
