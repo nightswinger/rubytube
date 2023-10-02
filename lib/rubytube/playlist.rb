@@ -3,6 +3,7 @@ module RubyTube
 
     def initialize(input_url)
       @input_url = input_url
+      super(videos)
     end
 
     def id
@@ -15,8 +16,16 @@ module RubyTube
 
     private
 
-    def extract_videos
-      section_contents = initial_data.dig(
+    def videos
+      @videos ||= video_urls.map { |url| Client.new(url) }
+    end
+
+    def video_urls
+      video_content.map { |video| "/watch?v=#{video.dig("playlistVideoRenderer", "videoId")}" }
+    end
+
+    def section_contents
+      @section_contents ||= initial_data.dig(
         "contents",
         "twoColumnBrowseResultsRenderer",
         "tabs", 0,
@@ -25,17 +34,24 @@ module RubyTube
         "sectionListRenderer",
         "contents"
       ) || {}
-      important_content = section_contents.dig(
+    end
+
+    def important_content
+      @important_content ||= section_contents.dig(
         0,
         "itemSectionRenderer",
-        "contents", 0, 
+        "contents", 0,
         "playlistVideoListRenderer"
       ) || {}
-      video_content = important_content["contents"]
+    end
 
-      # video_content[0]['playlistVideoRenderer']['videoId']
+    def video_content
+      @video_content ||= important_content["contents"] || []
+    end
 
-      continuation = video_content.dig(
+    def continuation
+      @continuation ||= important_content.dig(
+        'contents',
         -1,
         'continuationItemRenderer',
         'continuationEndpoint',
