@@ -351,8 +351,7 @@ module RubyTube
       plan_regex = Regexp.new(transform_start)
       match = raw_code.match(plan_regex)
 
-      # transform_plan_raw = Parser.find_object_from_startpoint(raw_code, match.end(0) - 1)
-      transform_plan_raw = js
+      transform_plan_raw = Parser.find_object_from_startpoint(raw_code, match.end(0) - 1)
       step_regex = %r"c\[(\d+)\]\(c\[(\d+)\](,c(\[(\d+)\]))?\)"
       matches = transform_plan_raw.scan(step_regex)
       transform_steps = []

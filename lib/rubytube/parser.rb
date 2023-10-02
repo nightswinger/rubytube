@@ -83,6 +83,7 @@ module RubyTube
         '{' => '}',
         '[' => ']',
         '"' => '"',
+        '\'': '\'',
         '/' => '/' # JavaScript regex
       }
 
