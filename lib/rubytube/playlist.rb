@@ -14,6 +14,22 @@ module RubyTube
       "https://www.youtube.com/playlist?list=#{id}"
     end
 
+    def title
+      @title ||= sidebar_info.dig(0, "playlistSidebarPrimaryInfoRenderer", "title", "runs", 0, "text")
+    end
+
+    def description
+      @description ||= sidebar_info.dig(0, "playlistSidebarPrimaryInfoRenderer", "description", "simpleText")
+    end
+
+    def length
+      @length ||= sidebar_info.dig(0, "playlistSidebarPrimaryInfoRenderer", "stats", 0, "runs", 0, "text").to_i
+    end
+
+    def views
+      @views ||= sidebar_info.dig(0, "playlistSidebarPrimaryInfoRenderer", "stats", 1, "simpleText").split[0].gsub(',', '').to_i
+    end
+
     private
 
     def videos
@@ -66,6 +82,14 @@ module RubyTube
 
     def initial_data
       @initial_data ||= JSON.parse(Extractor.initial_data(html))
+    end
+
+    def sidebar_info
+      @sidebar_info ||= initial_data.dig(
+        "sidebar",
+        "playlistSidebarRenderer",
+        "items"
+      ) || []
     end
   end
 end
