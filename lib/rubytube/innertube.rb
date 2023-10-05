@@ -40,7 +40,7 @@ module RubyTube
 
     attr_accessor :context, :header, :api_key, :access_token, :refresh_token, :use_oauth, :allow_cache, :expires
 
-    def initialize(client: 'ANDROID_MUSIC', use_oauth: false, allow_cache: false)
+    def initialize(client: 'WEB', use_oauth: false, allow_cache: false)
       self.context = DEFALUT_CLIENTS[client][:context]
       self.header  = DEFALUT_CLIENTS[client][:header]
       self.api_key = DEFALUT_CLIENTS[client][:api_key]
