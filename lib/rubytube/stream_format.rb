@@ -34,7 +34,7 @@ module RubyTube
       132 => ["240p", "48kbps"],
       151 => ["720p", "24kbps"],
       300 => ["720p", "128kbps"],
-      301 => ["1080p", "128kbps"],
+      301 => ["1080p", "128kbps"]
     }
 
     DASH_VIDEO = {
@@ -112,7 +112,7 @@ module RubyTube
       256 => [nil, "192kbps"],
       258 => [nil, "384kbps"],
       325 => [nil, nil],
-      328 => [nil, nil],
+      328 => [nil, nil]
     }
 
     ITAGS = {

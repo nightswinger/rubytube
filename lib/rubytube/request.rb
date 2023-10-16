@@ -24,7 +24,7 @@ module RubyTube
         stop_pos = [downloaded + DEFAULT_RANGE_SIZE, file_size].min - 1
         range_header = "bytes=#{downloaded}-#{stop_pos}"
         tries = 0
-    
+
         while true
           begin
             if tries >= 1 + max_retries
@@ -56,20 +56,18 @@ module RubyTube
     end
 
     def send(method, url, options = {})
-      headers = { 'Content-Type': 'text/html' }
+      headers = {"Content-Type": "text/html"}
       options[:headers] && headers.merge!(options[:headers])
 
       connection = Faraday.new(url: url) do |faraday|
         faraday.response :follow_redirects
         faraday.adapter Faraday.default_adapter
       end
-      response = connection.send(method) do |req|
+      connection.send(method) do |req|
         req.headers = headers
-        options[:query] && req.params = options[:query] 
+        options[:query] && req.params = options[:query]
         options[:data] && req.body = JSON.dump(options[:data])
       end
-
-      response
     end
   end
 end

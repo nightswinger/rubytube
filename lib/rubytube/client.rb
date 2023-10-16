@@ -33,10 +33,10 @@ module RubyTube
     end
 
     def streaming_data
-      return vid_info['streamingData'] if vid_info && vid_info.key?('streamingData')
+      return vid_info["streamingData"] if vid_info && vid_info.key?("streamingData")
 
       bypass_age_gate
-      vid_info['streamingData']
+      vid_info["streamingData"]
     end
 
     def fmt_streams
@@ -69,24 +69,24 @@ module RubyTube
 
       messages.each do |reason|
         case status
-        when 'UNPLAYABLE'
+        when "UNPLAYABLE"
           case reason
-          when 'Join this channel to get access to members-only content like this video, and other exclusive perks.'
+          when "Join this channel to get access to members-only content like this video, and other exclusive perks."
             raise MembersOnly.new(video_id)
-          when 'This live stream recording is not available.'
+          when "This live stream recording is not available."
             raise RecordingUnavailable.new(video_id)
           else
             raise VideoUnavailable.new(video_id)
           end
-        when 'LOGIN_REQUIRED'
-          if reason == 'This is a private video. Please sign in to verify that you may see it.'
+        when "LOGIN_REQUIRED"
+          if reason == "This is a private video. Please sign in to verify that you may see it."
             raise VideoPrivate.new(video_id)
           end
-        when 'ERROR'
-          if reason == 'Video unavailable'
+        when "ERROR"
+          if reason == "Video unavailable"
             raise VideoUnavailable.new(video_id)
           end
-        when 'LIVE_STREAM'
+        when "LIVE_STREAM"
           raise LiveStreamError.new(video_id)
         end
       end
@@ -100,9 +100,9 @@ module RubyTube
     end
 
     def thumbnail_url
-      thumbs = vid_info.fetch('videoDetails', {}).fetch('thumbnail', {}).fetch('thumbnails', [])
+      thumbs = vid_info.fetch("videoDetails", {}).fetch("thumbnail", {}).fetch("thumbnails", [])
 
-      return thumbs[-1]['url'] if thumbs.size > 0
+      return thumbs[-1]["url"] if thumbs.size > 0
 
       "https://img.youtube.com/vi/#{ideo_id}/maxresdefault.jpg"
     end
@@ -117,11 +117,11 @@ module RubyTube
     end
 
     def bypass_age_gate
-      it = InnerTube.new(client: 'ANDROID_EMBED')
+      it = InnerTube.new(client: "ANDROID_EMBED")
       resp = it.player(video_id)
 
-      status = resp['playabilityStatus']['status']
-      if status == 'UNPLAYABLE'
+      status = resp["playabilityStatus"]["status"]
+      if status == "UNPLAYABLE"
         raise VideoUnavailable.new(video_id)
       end
 
@@ -131,42 +131,42 @@ module RubyTube
     def title
       return @title if @title
 
-      @title = vid_info['videoDetails']['title']
+      @title = vid_info["videoDetails"]["title"]
       @title
     end
 
     def length
       return @length if @length
 
-      @length = vid_info['videoDetails']['lengthSeconds'].to_i
+      @length = vid_info["videoDetails"]["lengthSeconds"].to_i
       @length
     end
 
     def views
       return @views if @views
 
-      @views = vid_info['videoDetails']['viewCount'].to_i
+      @views = vid_info["videoDetails"]["viewCount"].to_i
       @views
     end
 
     def author
       return @author if @author
 
-      @author = vid_info['videoDetails']['author']
+      @author = vid_info["videoDetails"]["author"]
       @author
     end
 
     def keywords
       return @keywords if @keywords
 
-      @keywords = vid_info['videoDetails']['keywords']
+      @keywords = vid_info["videoDetails"]["keywords"]
       @keywords
     end
 
     def channel_id
       return @channel_id if @channel_id
 
-      @channel_id = vid_info['videoDetails']['channelId']
+      @channel_id = vid_info["videoDetails"]["channelId"]
       @channel_id
     end
   end

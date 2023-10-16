@@ -44,14 +44,14 @@ module RubyTube
         dir = :asc
       when Hash
         field = arg.keys.first
-        dir = arg[field] == :desc ? :desc : :asc
+        dir = (arg[field] == :desc) ? :desc : :asc
       end
 
       allowed_fields = [:file_size, :itag, :resolution]
       raise InvalidArgumentError unless allowed_fields.include? field
 
       r = streams
-      r.sort! {|a, b| a.send(field).to_i <=> b.send(field).to_i }
+      r.sort! { |a, b| a.send(field).to_i <=> b.send(field).to_i }
 
       r.reverse! if dir == :desc
 

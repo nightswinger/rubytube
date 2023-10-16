@@ -16,16 +16,16 @@ module RubyTube
     def initialize(stream, monostate)
       self.monostate = monostate
 
-      self.url = stream['url']
-      self.itag = stream['itag'].to_i
+      self.url = stream["url"]
+      self.itag = stream["itag"].to_i
 
-      self.mime_type, self.codecs = Extractor.mime_type_codec(stream['mimeType'])
-      self.type, self.subtype = mime_type.split('/')
+      self.mime_type, self.codecs = Extractor.mime_type_codec(stream["mimeType"])
+      self.type, self.subtype = mime_type.split("/")
 
-      self.is_otf = stream['is_otf']
-      self.bitrate = stream['bitrate']
+      self.is_otf = stream["is_otf"]
+      self.bitrate = stream["bitrate"]
 
-      self.file_size = stream.fetch('contentLength', 0).to_i
+      self.file_size = stream.fetch("contentLength", 0).to_i
     end
 
     def download(filename: nil, output_dir: nil)
@@ -35,26 +35,24 @@ module RubyTube
 
       bytes_remaining = file_size
 
-      File.open(file_path, 'wb') do |f|
-        begin
-          Request.stream(url) do |chunk|
-            bytes_remaining -= chunk.bytesize
-            f.write(chunk)
-          end
-        rescue HTTPError => e
-          raise e if e.code != 404
+      File.open(file_path, "wb") do |f|
+        Request.stream(url) do |chunk|
+          bytes_remaining -= chunk.bytesize
+          f.write(chunk)
         end
+      rescue HTTPError => e
+        raise e if e.code != 404
       end
 
       file_path
     end
 
     def is_audio?
-      type == 'audio'
+      type == "audio"
     end
 
     def is_video?
-      type == 'video'
+      type == "video"
     end
 
     def is_adaptive?
@@ -75,8 +73,8 @@ module RubyTube
 
     private
 
-    def get_file_path(filename, output_dir, prefix = '')
-      filename = default_filename unless filename
+    def get_file_path(filename, output_dir, prefix = "")
+      filename ||= default_filename
 
       if prefix
         filename = "#{prefix}#{filename}"

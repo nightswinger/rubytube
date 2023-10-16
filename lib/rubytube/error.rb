@@ -1,9 +1,14 @@
 module RubyTube
   class Error < StandardError; end
+
   class HTMLParseError < StandardError; end
+
   class ExtractError < StandardError; end
+
   class MaxRetriesExceeded < StandardError; end
+
   class VideoUnavailable < StandardError; end
+
   class InvalidArgumentError < ArgumentError; end
 
   class RegexMatchError < StandardError
@@ -17,25 +22,25 @@ module RubyTube
       super("Members only video: #{video_id}")
     end
   end
-  
+
   class RecordingUnavailable < StandardError
     def initialize(video_id)
       super("Recording unavailable: #{video_id}")
     end
   end
-  
+
   class VideoUnavailable < StandardError
     def initialize(video_id)
       super("Video unavailable: #{video_id}")
     end
   end
-  
+
   class VideoPrivate < StandardError
     def initialize(video_id)
       super("Video is private: #{video_id}")
     end
   end
-  
+
   class LiveStreamError < StandardError
     def initialize(video_id)
       super("Video is a live stream: #{video_id}")

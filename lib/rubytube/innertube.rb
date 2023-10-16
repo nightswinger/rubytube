@@ -1,55 +1,55 @@
 module RubyTube
   class InnerTube
     DEFALUT_CLIENTS = {
-      'WEB' => {
+      "WEB" => {
         context: {
           client: {
-            clientName: 'WEB',
-            clientVersion: '2.20200720.00.02'
+            clientName: "WEB",
+            clientVersion: "2.20200720.00.02"
           }
         },
-        header: { 'User-Agent': 'Mozilla/5.0' },
-        api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
+        header: {"User-Agent": "Mozilla/5.0"},
+        api_key: "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
       },
-      'ANDROID_MUSIC' => {
+      "ANDROID_MUSIC" => {
         context: {
           client: {
-            clientName: 'ANDROID_MUSIC',
-            clientVersion: '5.16.51',
-            androidSdkVersion: 30,
-          },
+            clientName: "ANDROID_MUSIC",
+            clientVersion: "5.16.51",
+            androidSdkVersion: 30
+          }
         },
-        header: { 'User-Agent': 'com.google.android.apps.youtube.music/'},
-        api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8',
+        header: {"User-Agent": "com.google.android.apps.youtube.music/"},
+        api_key: "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
       },
-      'ANDROID_EMBED' => {
+      "ANDROID_EMBED" => {
         context: {
-            client: {
-                clientName: 'ANDROID_EMBEDDED_PLAYER',
-                clientVersion: '17.31.35',
-                clientScreen: 'EMBED',
-                androidSdkVersion: 30,
-            }
+          client: {
+            clientName: "ANDROID_EMBEDDED_PLAYER",
+            clientVersion: "17.31.35",
+            clientScreen: "EMBED",
+            androidSdkVersion: 30
+          }
         },
-        header: { 'User-Agent': 'com.google.android.youtube/' },
-        api_key: 'AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8'
-      },
+        header: {"User-Agent": "com.google.android.youtube/"},
+        api_key: "AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
+      }
     }
 
-    BASE_URL = 'https://www.youtube.com/youtubei/v1'
+    BASE_URL = "https://www.youtube.com/youtubei/v1"
 
     attr_accessor :context, :header, :api_key, :access_token, :refresh_token, :use_oauth, :allow_cache, :expires
 
-    def initialize(client: 'WEB', use_oauth: false, allow_cache: false)
+    def initialize(client: "WEB", use_oauth: false, allow_cache: false)
       self.context = DEFALUT_CLIENTS[client][:context]
-      self.header  = DEFALUT_CLIENTS[client][:header]
+      self.header = DEFALUT_CLIENTS[client][:header]
       self.api_key = DEFALUT_CLIENTS[client][:api_key]
       self.use_oauth = use_oauth
       self.allow_cache = allow_cache
     end
 
     def cache_tokens
-      return unless allow_cache
+      nil unless allow_cache
 
       # TODO:
     end
@@ -68,16 +68,16 @@ module RubyTube
       end
 
       headers = {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json"
       }
 
       if use_oauth
         if access_token
           refresh_bearer_token
-          headers['Authorization'] = "Bearer #{access_token}"
+          headers["Authorization"] = "Bearer #{access_token}"
         else
           fetch_bearer_token
-          headers['Authorization'] = "Bearer #{access_token}"
+          headers["Authorization"] = "Bearer #{access_token}"
         end
       end
 
@@ -87,7 +87,7 @@ module RubyTube
       options[:query] = {
         key: api_key,
         contentCheckOk: true,
-        racyCheckOk: true,
+        racyCheckOk: true
       }.merge(query)
       options[:data] = data
 
@@ -97,7 +97,7 @@ module RubyTube
 
     def player(video_id)
       endpoint = "#{BASE_URL}/player"
-      query = { 'videoId' => video_id }
+      query = {"videoId" => video_id}
 
       send(endpoint, query, {context: context})
     end
