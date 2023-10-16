@@ -52,7 +52,7 @@ module RubyTube
     end
 
     def get_signature(ciphered_signature)
-      signature = ciphered_signature.split("")
+      signature = ciphered_signature.chars
 
       transform_plan.each do |js_func|
         name, argument = parse_function(js_func)
@@ -174,9 +174,9 @@ module RubyTube
     end
 
     def throttling_cipher_function(d, e)
-      h = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_".split("")
+      h = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_".chars
       f = 96
-      self_arr = e.split("")
+      self_arr = e.chars
 
       copied_array = d.clone
 

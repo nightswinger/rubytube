@@ -116,7 +116,7 @@ module RubyTube
           query_params.transform_values!(&:first)
           query_params["sig"] = signature
           unless query_params.key?("ratebypass")
-            initial_n = query_params["n"].split("")
+            initial_n = query_params["n"].chars
             new_n = cipher.calculate_n(initial_n)
             query_params["n"] = new_n
           end
