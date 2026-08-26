@@ -1,5 +1,7 @@
 require "minitest/autorun"
 require "json"
+require "tmpdir"
+require "fileutils"
 require_relative "../lib/rubytube"
 
 FIXTURE = JSON.parse(File.read(File.expand_path("fixtures/player_response.json", __dir__)))
@@ -44,59 +46,102 @@ end
 class StreamsTest < Minitest::Test
   def setup = @yt = fixture_youtube
 
-  def test_parses_all_streams_with_urls
+  def test_parses_only_adaptive_streams
     assert_operator @yt.streams.size, :>=, 10
-    assert(@yt.streams.all? { |s| s.url.start_with?("https://") && s.itag.is_a?(Integer) })
+    assert(@yt.streams.all? { |s| s.url.start_with?("https://") && s.itag.is_a?(Integer) && s.codecs.size == 1 })
+    assert_nil @yt.streams.get_by_itag(18)
   end
 
-  def test_progressive_vs_adaptive
-    progressive = @yt.streams.filter(progressive: true)
-    assert_equal [18], progressive.map(&:itag)
-    assert progressive.first.includes_audio_track?
-    assert progressive.first.includes_video_track?
-    assert @yt.streams.filter(adaptive: true).all?(&:adaptive?)
+  def test_video_and_audio_streams
+    assert @yt.streams.video_streams.all?(&:video?)
+    assert @yt.streams.audio_streams.all?(&:audio?)
+    assert_equal @yt.streams.size, @yt.streams.video_streams.size + @yt.streams.audio_streams.size
+    assert(@yt.streams.audio_streams.all? { |s| s.video_codec.nil? && s.audio_codec })
   end
 
-  def test_filter_audio_and_subtype
-    audio = @yt.streams.filter(only_audio: true)
-    assert_operator audio.size, :>=, 2
-    assert(audio.all? { |s| s.type == "audio" && s.video_codec.nil? && s.audio_codec })
-    assert(@yt.streams.filter(only_audio: true, subtype: "webm").all? { |s| s.subtype == "webm" })
-  end
-
-  def test_filter_with_block_and_enumerable
+  def test_filter_and_enumerable
+    assert(@yt.streams.filter(type: "audio", container: "webm").all? { |s| s.container == "webm" })
     high = @yt.streams.filter { |s| (s.bitrate || 0) > 100_000 }
     assert_operator high.size, :>, 0
     assert_kind_of RubyTube::StreamQuery, high
-    assert_equal @yt.streams.select(&:only_audio?).size, @yt.streams.filter(only_audio: true).size
+    assert_equal @yt.streams.select(&:audio?).size, @yt.streams.filter(type: "audio").size
   end
 
-  def test_getters
-    assert_equal 18, @yt.streams.get_by_itag(18).itag
-    assert_equal "240p", @yt.streams.get_highest_resolution.resolution
-    assert @yt.streams.get_highest_resolution.progressive?
-    audio = @yt.streams.get_audio_only
-    assert_equal "audio/mp4", audio.mime_type
-    assert_equal 140, audio.itag
+  def test_best_video
+    best = @yt.streams.best_video
+    assert_equal 133, best.itag
+    assert_equal "240p", best.resolution
+    assert_equal 242, @yt.streams.best_video(container: "webm").itag
+    assert_equal 160, @yt.streams.best_video(max_resolution: 144).itag
+    assert_nil @yt.streams.best_video(max_resolution: 100)
+  end
+
+  def test_best_audio
+    assert_equal 140, @yt.streams.best_audio.itag
+    assert_equal 251, @yt.streams.best_audio(container: "webm").itag
   end
 
   def test_order_by
-    abrs = @yt.streams.filter(only_audio: true).order_by(:bitrate).map(&:bitrate)
+    abrs = @yt.streams.audio_streams.order_by(:bitrate).map(&:bitrate)
     assert_equal abrs.sort, abrs
-    resolutions = @yt.streams.filter(type: "video").order_by(:resolution).map { |s| s.resolution.to_i }
+    resolutions = @yt.streams.video_streams.order_by(:resolution).map { |s| s.resolution.to_i }
     assert_equal resolutions.sort, resolutions
   end
 
   def test_stream_attributes
-    s = @yt.streams.get_by_itag(18)
+    s = @yt.streams.get_by_itag(133)
     assert_equal "video", s.type
-    assert_equal "mp4", s.subtype
-    assert_equal 2, s.codecs.size
+    assert_equal "mp4", s.container
+    assert_equal "avc1.4d400c", s.video_codec
     assert_match(/\A\d+kbps\z/, s.abr)
     assert_equal "Me at the zoo.mp4", s.default_filename
-    assert_operator @yt.streams.get_audio_only.filesize, :>, 0
+    assert_equal "Me at the zoo.m4a", @yt.streams.best_audio.default_filename
+    assert_equal "Me at the zoo.webm", @yt.streams.best_audio(container: "webm").default_filename
+    assert_operator @yt.streams.best_audio.filesize, :>, 0
+  end
+end
+
+class DownloadTest < Minitest::Test
+  def setup
+    @yt = fixture_youtube
+    @dir = Dir.mktmpdir
+    @yt.streams.each do |s|
+      def s.download(output_path:, filename: nil, **)
+        path = File.join(output_path, filename || default_filename)
+        File.write(path, "#{itag}|")
+        yield "#{itag}|", 0 if block_given?
+        path
+      end
+    end
+    def @yt.mux(inputs, target) = File.write(target, inputs.map { File.read(it) }.join)
   end
 
+  def teardown = FileUtils.rm_rf(@dir)
+
+  def test_download_muxes_best_video_and_audio
+    seen = []
+    path = @yt.download(output_path: @dir) { |chunk, remaining| seen << [chunk, remaining] }
+    assert_equal File.join(@dir, "Me at the zoo.mp4"), path
+    assert_equal "133|140|", File.read(path)
+    assert_equal ["133|", "140|"], seen.map(&:first)
+    assert_equal ["Me at the zoo.mp4"], Dir.children(@dir)
+  end
+
+  def test_download_options
+    assert_equal "242|251|", File.read(@yt.download(output_path: @dir, container: "webm", filename: "x.webm"))
+    assert_equal "140|", File.read(@yt.download(output_path: @dir, audio_only: true))
+    assert_equal "160|140|", File.read(@yt.download(output_path: @dir, max_resolution: 144, filename: "low.mp4"))
+  end
+
+  def test_download_skips_existing
+    target = File.join(@dir, "Me at the zoo.mp4")
+    File.write(target, "old")
+    assert_equal target, @yt.download(output_path: @dir)
+    assert_equal "old", File.read(target)
+  end
+end
+
+class AvailabilityTest < Minitest::Test
   def test_unavailable_video_raises
     yt = RubyTube::YouTube.new("jNQXAC9IVRw")
     innertube = Object.new

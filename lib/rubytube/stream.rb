@@ -26,21 +26,14 @@ module RubyTube
       @otf = format["type"] == "FORMAT_STREAM_TYPE_OTF"
     end
 
-    def progressive? = type == "video" && codecs.size == 2
-    def adaptive? = !progressive?
-    def includes_video_track? = type == "video"
-    def includes_audio_track? = progressive? || type == "audio"
-    def only_audio? = type == "audio"
-    def only_video? = includes_video_track? && !includes_audio_track?
+    alias container subtype
+
+    def video? = type == "video"
+    def audio? = type == "audio"
     def otf? = @otf
 
-    def video_codec = includes_video_track? ? codecs.first : nil
-
-    def audio_codec
-      return nil unless includes_audio_track?
-
-      progressive? ? codecs.last : codecs.first
-    end
+    def video_codec = video? ? codecs.first : nil
+    def audio_codec = audio? ? codecs.first : nil
 
     def abr = bitrate && "#{bitrate / 1000}kbps"
 
@@ -50,14 +43,14 @@ module RubyTube
 
     def default_filename
       name = (@yt.title || video_id_or_itag).gsub(%r{[/\\:*?"<>|]}, "").strip
-      "#{name}.#{subtype}"
+      "#{name}.#{audio? && container == "mp4" ? "m4a" : container}"
     end
 
     def download(output_path: nil, filename: nil, filename_prefix: nil,
                  skip_existing: true, max_retries: 0)
       raise Error, "OTF streams are not supported" if otf?
 
-      target = File.join(output_path || Dir.pwd,
+      target = File.join(File.expand_path(output_path || Dir.pwd),
                          "#{filename_prefix}#{filename || default_filename}")
       return target if skip_existing && File.size?(target)
 
@@ -110,7 +103,7 @@ module RubyTube
     def fetch_filesize
       response = http.get(range_uri(0, 0), request_headers("bytes=0-0"))
       total = response["Content-Range"]&.split("/")&.last&.to_i
-      raise ExtractError, "cannot determine filesize for itag #{itag}" unless total&.positive?
+      raise ExtractError, "cannot determine filesize for itag #{itag} (HTTP #{response.code})" unless total&.positive?
 
       total
     end

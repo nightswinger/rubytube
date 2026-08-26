@@ -6,16 +6,20 @@ out = ARGV[1] || Dir.tmpdir
 
 yt = RubyTube::YouTube.new(url)
 puts "#{yt.title} (#{yt.length}s) by #{yt.author} — #{yt.views} views"
-
 yt.streams.each { |s| puts "  #{s}" }
 
-stream = yt.streams.get_audio_only || yt.streams.get_lowest_resolution || yt.streams.first
-abort "no downloadable stream" unless stream
-puts "downloading: #{stream}"
+video = yt.streams.best_video
+audio = yt.streams.best_audio
+puts "best video: #{video}\nbest audio: #{audio}"
 
-path = stream.download(output_path: out, skip_existing: false) do |_chunk, remaining|
+path = yt.download(output_path: out, skip_existing: false, max_resolution: 360) do |_chunk, remaining|
   print "\r  #{remaining} bytes remaining      "
 end
-puts "\nsaved: #{path} (#{File.size(path)} bytes, expected #{stream.filesize})"
-abort "SIZE MISMATCH" unless File.size(path) == stream.filesize
+puts "\nsaved: #{path} (#{File.size(path)} bytes)"
+abort "EMPTY OUTPUT" unless File.size?(path)
+abort "PART FILES LEFT" if Dir.glob("#{path}.*.part").any?
+
+audio_path = yt.download(output_path: out, audio_only: true, skip_existing: false)
+puts "saved: #{audio_path} (#{File.size(audio_path)} bytes, expected #{audio.filesize})"
+abort "SIZE MISMATCH" unless File.size(audio_path) == audio.filesize
 puts "OK"
