@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["nightswinger"]
   spec.email = ["stardustkids83@gmail.com"]
 
-  spec.summary = "RubyTube is a Ruby adaptation of pytube, enabling simplified downloading and streaming of YouTube videos in a Ruby-friendly manner."
+  spec.summary = "Download YouTube videos from Ruby: picks the best video and audio tracks and muxes them with ffmpeg."
   spec.homepage = "https://github.com/nightswinger/rubytube"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.4"

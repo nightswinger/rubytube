@@ -29,9 +29,34 @@ module RubyTube
       @streams ||= begin
         streaming_data = player_response["streamingData"] or
           raise ExtractError, "no streamingData in player response (live stream?)"
-        formats = Array(streaming_data["formats"]) + Array(streaming_data["adaptiveFormats"])
-        StreamQuery.new(formats.select { |f| f["url"] }.map { |f| Stream.new(f, self) })
+        formats = Array(streaming_data["adaptiveFormats"]).select { |f| f["url"] }
+        StreamQuery.new(formats.map { |f| Stream.new(f, self) })
       end
+    end
+
+    def download(output_path: nil, filename: nil, container: "mp4", max_resolution: nil,
+                 audio_only: false, skip_existing: true, max_retries: 0, &progress)
+      audio = streams.best_audio(container:) or raise ExtractError, "no #{container} audio stream for #{video_id}"
+      return audio.download(output_path:, filename:, skip_existing:, max_retries:, &progress) if audio_only
+
+      video = streams.best_video(container:, max_resolution:) or
+        raise ExtractError, "no #{container} video stream for #{video_id}"
+      target = File.join(File.expand_path(output_path || Dir.pwd), filename || video.default_filename)
+      return target if skip_existing && File.size?(target)
+
+      remaining = video.filesize + audio.filesize
+      track = lambda do |chunk, _|
+        remaining -= chunk.bytesize
+        progress&.call(chunk, remaining)
+      end
+      parts = [video, audio].map do |s|
+        s.download(output_path: File.dirname(target), filename: "#{File.basename(target)}.#{s.itag}.part",
+                   skip_existing: false, max_retries:, &track)
+      end
+      mux(parts, target)
+      target
+    ensure
+      parts&.each { |part| File.delete(part) if File.exist?(part) }
     end
 
     def video_details = player_response.fetch("videoDetails", {})
@@ -48,6 +73,15 @@ module RubyTube
     end
 
     private
+
+    def mux(inputs, target)
+      ok = system("ffmpeg", "-y", "-loglevel", "error", *inputs.flat_map { |i| ["-i", i] }, "-c", "copy", target)
+      return if ok
+
+      File.delete(target) if File.exist?(target)
+      raise Error, ok.nil? ? "ffmpeg not found: install it, or fetch tracks separately via streams.best_video / best_audio" :
+                             "ffmpeg failed to mux #{target}"
+    end
 
     def check_availability(data)
       status = data.dig("playabilityStatus", "status")
