@@ -87,7 +87,7 @@ module RubyTube
     def fetch_range(start, stop, max_retries)
       attempts = 0
       begin
-        response = http.get(range_uri(start, stop), request_headers("bytes=#{start}-#{stop}"))
+        response = http.get(request_path, request_headers("bytes=#{start}-#{stop}"))
         raise Error, "HTTP #{response.code} while downloading itag #{itag}" unless response.is_a?(Net::HTTPSuccess)
 
         response.body
@@ -101,18 +101,16 @@ module RubyTube
     end
 
     def fetch_filesize
-      response = http.get(range_uri(0, 0), request_headers("bytes=0-0"))
+      response = http.get(request_path, request_headers("bytes=0-0"))
       total = response["Content-Range"]&.split("/")&.last&.to_i
       raise ExtractError, "cannot determine filesize for itag #{itag} (HTTP #{response.code})" unless total&.positive?
 
       total
     end
 
-    def range_uri(start, stop)
-      uri = URI(url)
-      uri.query = [uri.query, "range=#{start}-#{stop}"].compact.join("&")
-      uri.request_uri
-    end
+    # googlevideo applies the range= query param and the Range header in sequence, so sending
+    # both slices an already-sliced body and 416s on any nonzero offset. Use the header alone.
+    def request_path = @request_path ||= URI(url).request_uri
 
     def request_headers(range)
       { "Range" => range, "User-Agent" => InnerTube::USER_AGENT }
