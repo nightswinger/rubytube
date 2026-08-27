@@ -6,19 +6,18 @@ module RubyTube
   class InnerTube
     BASE = "https://www.youtube.com/youtubei/v1"
 
-    CLIENT_VERSION = "1.65.10"
-    CLIENT_ID = "28"
-    USER_AGENT = "com.google.android.apps.youtube.vr.oculus/#{CLIENT_VERSION} " \
-                 "(Linux; U; Android 12L; eureka-user Build/SQ3A.220605.009.A1) gzip"
+    CLIENT_VERSION = "1.02"
+    CLIENT_ID = "101"
+    USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 15_7_3) AppleWebKit/605.1.15 " \
+                 "(KHTML, like Gecko) Version/26.0 Safari/605.1.15"
 
     CLIENT_CONTEXT = {
-      clientName: "ANDROID_VR",
+      clientName: "VISIONOS",
       clientVersion: CLIENT_VERSION,
-      deviceMake: "Oculus",
-      deviceModel: "Quest 3",
-      androidSdkVersion: 32,
-      osName: "Android",
-      osVersion: "12L",
+      deviceMake: "Apple",
+      deviceModel: "RealityDevice17,1",
+      osName: "visionOS",
+      osVersion: "26.5.23O471",
       hl: "en",
       gl: "US"
     }.freeze
