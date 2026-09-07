@@ -11,6 +11,9 @@ module RubyTube
     USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 15_7_3) AppleWebKit/605.1.15 " \
                  "(KHTML, like Gecko) Version/26.0 Safari/605.1.15"
 
+    WEB_CLIENT_ID = "1"
+    WEB_CLIENT_VERSION = "2.20260708.00.00"
+
     CLIENT_CONTEXT = {
       clientName: "VISIONOS",
       clientVersion: CLIENT_VERSION,
@@ -22,30 +25,44 @@ module RubyTube
       gl: "US"
     }.freeze
 
+    WEB_CLIENT_CONTEXT = {
+      clientName: "WEB",
+      clientVersion: WEB_CLIENT_VERSION,
+      hl: "en",
+      gl: "US"
+    }.freeze
+
+    # Continuation page of a channel/playlist listing. visitor_data comes from the page's ytInitialData.
+    def browse(continuation:, visitor_data:)
+      post("browse",
+           { context: { client: WEB_CLIENT_CONTEXT.merge(visitorData: visitor_data) }, continuation: },
+           client_id: WEB_CLIENT_ID, client_version: WEB_CLIENT_VERSION, visitor_data:)
+    end
+
     def player(video_id)
       post("player",
-           context: { client: CLIENT_CONTEXT.merge(visitorData: visitor_data) },
-           videoId: video_id,
-           contentCheckOk: true,
-           racyCheckOk: true)
+           { context: { client: CLIENT_CONTEXT.merge(visitorData: visitor_data) },
+             videoId: video_id,
+             contentCheckOk: true,
+             racyCheckOk: true })
     end
 
     def visitor_data
-      @visitor_data ||= post("visitor_id", context: { client: CLIENT_CONTEXT })
+      @visitor_data ||= post("visitor_id", { context: { client: CLIENT_CONTEXT } })
                         .dig("responseContext", "visitorData") or
         raise ExtractError, "could not obtain visitorData"
     end
 
     private
 
-    def post(endpoint, payload)
+    def post(endpoint, payload, client_id: CLIENT_ID, client_version: CLIENT_VERSION, visitor_data: @visitor_data)
       uri = URI("#{BASE}/#{endpoint}?prettyPrint=false")
       request = Net::HTTP::Post.new(uri)
       request["Content-Type"] = "application/json"
       request["User-Agent"] = USER_AGENT
-      request["X-Youtube-Client-Name"] = CLIENT_ID
-      request["X-Youtube-Client-Version"] = CLIENT_VERSION
-      request["X-Goog-Visitor-Id"] = @visitor_data if @visitor_data
+      request["X-Youtube-Client-Name"] = client_id
+      request["X-Youtube-Client-Version"] = client_version
+      request["X-Goog-Visitor-Id"] = visitor_data if visitor_data
       request.body = JSON.generate(payload)
 
       response = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(request) }

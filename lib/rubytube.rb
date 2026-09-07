@@ -1,5 +1,5 @@
 module RubyTube
-  VERSION = "1.0.0"
+  VERSION = "1.1.0"
 
   class Error < StandardError; end
 
@@ -20,3 +20,4 @@ require_relative "rubytube/innertube"
 require_relative "rubytube/stream"
 require_relative "rubytube/stream_query"
 require_relative "rubytube/youtube"
+require_relative "rubytube/channel"
