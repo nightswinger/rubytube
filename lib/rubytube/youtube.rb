@@ -63,6 +63,7 @@ module RubyTube
     def title = video_details["title"]
     def author = video_details["author"]
     def channel_id = video_details["channelId"]
+    def channel = Channel.new(channel_id)
     def length = video_details["lengthSeconds"]&.to_i
     def views = video_details["viewCount"]&.to_i
     def description = video_details["shortDescription"]

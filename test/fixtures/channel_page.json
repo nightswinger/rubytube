@@ -1,0 +1,2280 @@
+{
+  "responseContext": {
+    "webResponseContextExtensionData": {
+      "ytConfigData": {
+        "visitorData": "CgtMMDhTUjZqLXFBTSi_uPnUBjIKCgJKUBIEGgAgSWLfAgrcAjIxLllUPWR3STJPUGp3empEUVRITlJFMURFM0lxTE01TXVTaG1oWnpTOWFPekNWdTlTdFlRaHpyNDgtXzNBTE9SVWVUd21WYWN6dnRmbE5IT0NHbXVZSG9DN0FLMFRjSnB0czdicDNwWFhhZDBFSGNVT2tjUzJlQ1FZX2w0VTFiME9fNzM3WGZiQmYwR2lTNU9fUnNfWGNLcmc3LUc5bDNDLWZsWDYyZzJYZ3ZTQ0pfQmdWbXZsWTlvTW1TaDEtU09rU2VwME9Odlg2NlJCMmItakNROGtlYzNua1pfZWdMZkRCSDFETHB1bmp6Sl8wN3ZibDZYd2NtNTBtR09IUnFUTjJ0VXVZbWRCR0E2WkgwN01MTUJkY0cxWnlJWmJoZjlHZlZmUEN3YWxHQ1o3ajdYLWN3Zy1aOV8wWTNWdGNWYkViUlVEN3BzOXJsTktiZjFwTnhIS0RFbUV2QQ%3D%3D"
+      }
+    }
+  },
+  "contents": {
+    "twoColumnBrowseResultsRenderer": {
+      "tabs": [
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/featured"
+                }
+              }
+            }
+          }
+        },
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/videos"
+                }
+              }
+            },
+            "selected": true,
+            "content": {
+              "richGridRenderer": {
+                "contents": [
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "CBzLIKfWpdg",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Celebrating one billion Gemma downloads"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "16K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 days ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/CBzLIKfWpdg/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBoBKk9fd7Hp8fzBC5OtyV6XQq3MQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/CBzLIKfWpdg/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCArMsVN-SdZXr_KMnYSKFaxkfqtg",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "0:56"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "ytjgy30Cono",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Agentic video understanding in Gemini"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "12K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "5 days ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/ytjgy30Cono/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCdcn6dceGMUi5wLpWfefqlnMRqXw",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/ytjgy30Cono/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBinZuOwgSDtbZP41NxIqtSrtzAkw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "3:19"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "Rrr2gdbvNFU",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Koray Kavukcuoglu on frontier models, coding agents, and building AGI"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "18K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "5 days ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/Rrr2gdbvNFU/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDW7srbr4c6QhPs1Bq_8dVIs7q8Fg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/Rrr2gdbvNFU/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDLQ7hBIAiLHbURMEuRkY1so8ORTA",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "26:47"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "PWPsZssgfDo",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "How to build with Gemini 3.5 Transcribe"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "22K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "11 days ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/PWPsZssgfDo/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBbAUeC2ilEGCCYjH8ojCP9NG5m3A",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/PWPsZssgfDo/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBO1OYMkvJLijlKCv-fiYB-w4essw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "4:50"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "kN_iMEAi1dw",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Build a live translation broadcast app with the Gemini Live API and LiveKit"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "4.6K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 weeks ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/kN_iMEAi1dw/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDLTVmK6-8WfEDF87laptEbaRdc8A",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/kN_iMEAi1dw/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAqYynX2iUPM507zeaLFw9LkWe0lQ",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "12:37"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "kacf2bib-X0",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Hands on with Gemini 3.7 Flash"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "22K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 weeks ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/kacf2bib-X0/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBbrcL5-Fhpcfd2q_B91ZdAZWorwg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/kacf2bib-X0/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBCAL07k1X7Hc3rUpc_uf_56Lzqsw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "4:21"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "9_PtOVH2FPE",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Introducing Gemini 3.7 Flash"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "Google for Developers and Google",
+                                            "styleRuns": [
+                                              {
+                                                "startIndex": 0,
+                                                "length": 32
+                                              },
+                                              {
+                                                "startIndex": 21,
+                                                "length": 1,
+                                                "styleRunExtensions": {
+                                                  "styleRunColorMapExtension": {
+                                                    "colorMap": [
+                                                      {
+                                                        "key": "USER_INTERFACE_THEME_DARK",
+                                                        "value": 4289374890
+                                                      },
+                                                      {
+                                                        "key": "USER_INTERFACE_THEME_LIGHT",
+                                                        "value": 4284506208
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              },
+                                              {
+                                                "startIndex": 32,
+                                                "styleRunExtensions": {
+                                                  "styleRunColorMapExtension": {
+                                                    "colorMap": [
+                                                      {
+                                                        "key": "USER_INTERFACE_THEME_DARK",
+                                                        "value": 4289374890
+                                                      },
+                                                      {
+                                                        "key": "USER_INTERFACE_THEME_LIGHT",
+                                                        "value": 4284506208
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            ],
+                                            "attachmentRuns": [
+                                              {
+                                                "startIndex": 21,
+                                                "element": {
+                                                  "type": {
+                                                    "imageType": {
+                                                      "image": {
+                                                        "sources": [
+                                                          {
+                                                            "clientResource": {
+                                                              "imageName": "CHECK_CIRCLE_FILLED"
+                                                            },
+                                                            "width": 14,
+                                                            "height": 14
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  "properties": {
+                                                    "layoutProperties": {
+                                                      "height": {
+                                                        "value": 14,
+                                                        "unit": "DIMENSION_UNIT_POINT"
+                                                      },
+                                                      "width": {
+                                                        "value": 14,
+                                                        "unit": "DIMENSION_UNIT_POINT"
+                                                      },
+                                                      "margin": {
+                                                        "left": {
+                                                          "value": 4,
+                                                          "unit": "DIMENSION_UNIT_POINT"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "alignment": "ALIGNMENT_VERTICAL_CENTER"
+                                              },
+                                              {
+                                                "startIndex": 32,
+                                                "element": {
+                                                  "type": {
+                                                    "imageType": {
+                                                      "image": {
+                                                        "sources": [
+                                                          {
+                                                            "clientResource": {
+                                                              "imageName": "CHECK_CIRCLE_FILLED"
+                                                            },
+                                                            "width": 14,
+                                                            "height": 14
+                                                          }
+                                                        ]
+                                                      }
+                                                    }
+                                                  },
+                                                  "properties": {
+                                                    "layoutProperties": {
+                                                      "height": {
+                                                        "value": 14,
+                                                        "unit": "DIMENSION_UNIT_POINT"
+                                                      },
+                                                      "width": {
+                                                        "value": 14,
+                                                        "unit": "DIMENSION_UNIT_POINT"
+                                                      },
+                                                      "margin": {
+                                                        "left": {
+                                                          "value": 4,
+                                                          "unit": "DIMENSION_UNIT_POINT"
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                },
+                                                "alignment": "ALIGNMENT_VERTICAL_CENTER"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "64K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "3 weeks ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/9_PtOVH2FPE/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBRHoKf49wQyw6jKYJXcpyuB7XH1g",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/9_PtOVH2FPE/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAZhi5mtL1jaBYOi1N09Fy2cFQQyQ",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "2:33"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "hfAkpEM9N5M",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "How builders at YC Startup School are using Gemini & Google AI"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "3.5K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/hfAkpEM9N5M/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAuhmtA4Pi_Pczadcg2vbDaWh1sYQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/hfAkpEM9N5M/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDVRR-BF5FGXnmJbiWuXGnlpddIqA",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "2:05"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "-rYFDefcq3k",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Introducing Gemini Robotics 2"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "15K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/-rYFDefcq3k/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA14pHF0bpHrlEI3i93vWrwGACXIw",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/-rYFDefcq3k/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAFowW2QbJfJdO0tU_2Cd7u8dElmw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "39:14"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "z6l5nyE_6-I",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Voice Agent observability with LangSmith"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "4K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/z6l5nyE_6-I/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCCBStP5Tt-Qe63Ekog2UDbSqjdBg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/z6l5nyE_6-I/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBAj4Hws975HznDvKgtDL0OL_ny2Q",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "7:38"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "BXzFk5kK5_Q",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Android Studio Quail 2, the Build with Gemini XPRIZE, and more! - Google Developer News July 2026"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "2.9K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/BXzFk5kK5_Q/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBESFsAiIUvQEaImdhkzEpSOwXueQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/BXzFk5kK5_Q/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBnoY0wezUEGIGlnJlfDgC1Y8ssNw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "5:24"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "JRArFxEfyQU",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "How are large language models trained?"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "23K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/JRArFxEfyQU/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDD3axpk3_Tye_Qu36i17Dv67_sAg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/JRArFxEfyQU/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAVVsI7y0KherAtpnJ5aXQgKWR3aA",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "10:09"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "iOK1-b_9Dlg",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Get started with the Interactions API"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "5K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/iOK1-b_9Dlg/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBPIV_MB0gCNurg-n0JmqQaOLZOnA",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/iOK1-b_9Dlg/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA7HfyYokfMmWrCbXwC16Q9ijRf5g",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "8:51"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "8I7wr2hYFec",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Antigravity Arcade: From prompt to game in minutes"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "7.8K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/8I7wr2hYFec/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCiWIeM35GJZ7XDmJRKvaKYRvHbEA",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/8I7wr2hYFec/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAo7mz0hmokfDeiHaBE8tTXzSPexg",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "8:53"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "yGHi5V4sVkc",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Build With AI 2026 Recap"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "1.2K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "1 month ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/yGHi5V4sVkc/hqdefault.jpg?sqp=-oaymwEjCOADEI4CSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCAX6zwhW2mQWJYfFcAWkhtnh_IoQ",
+                                    "width": 480,
+                                    "height": 270
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "1:00"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "KwJwYIqDMLY",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Building an Android app in AI Studio"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "22K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/KwJwYIqDMLY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCGnzQQQIKrX2mpSc-zfLbe8spg_g",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/KwJwYIqDMLY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC37nHjZf8F2xmTvWZrrjr-M6ozVw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "3:05"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "KIp8PAU3oAI",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Create agent skills for on-device generative AI (I/O Connect ‘26)"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "4.9K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/KIp8PAU3oAI/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBzpJk8pOyfpeRfJAIqSTZnYm2bEQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/KIp8PAU3oAI/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCoKDTloGLW4Gg_78lI3J-ssRmUHA",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "15:58"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "WZvd1tUreTY",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Dynamic Callbacks on Android for Google Pay"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "1.4K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/WZvd1tUreTY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAZPBmiuYkBNfhl3GXbUfm7evloRw",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/WZvd1tUreTY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDTCXC0b8jAtr7A5-17Dhdkpq-J7Q",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "4:06"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "nRLZqaNOrwQ",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Build creative apps with the GenMedia suite (I/O Connect ‘26)"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "1.2K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/nRLZqaNOrwQ/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAF8Lo-iGi34irr814a4GY8C5GH1Q",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/nRLZqaNOrwQ/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDx4wMr_MbGPLKMjKSwZcTSCwpaZA",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "27:24"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "d9LAQWKUnx8",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Build agents with Gemini API (I/O Connect ‘26)"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "9.3K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/d9LAQWKUnx8/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLC1CCMCyOKXOC9HV5XcqZc2vdkevQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/d9LAQWKUnx8/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAJDRRpo97y3yporjYLQisVxqYSSw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "37:10"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "YvVsdZL2ogY",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Sameer Samat on Android 17 and the Future of Intelligent Computing"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "7.3K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/YvVsdZL2ogY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAoXjVs-BHRU4SMTXSnnE9J97Y-zA",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/YvVsdZL2ogY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCBmFSB_DXknkihXtjUU0O_N0ETcw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "40:10"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "HcwMTu1xQDw",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Gemma 4 in Action: Bringing Frontier AI to the Edge"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "103K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/HcwMTu1xQDw/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCpoe5Hm5hft3et_qDoiSiekiHTmQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/HcwMTu1xQDw/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLArYwbF0HlGqoR04Eep5VgqICIgcA",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "4:08"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "cL7uFe5RqHY",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "AI tools for human creativity"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "14K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/cL7uFe5RqHY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDZW__GGcR2wEFjlLtrY54YoLb0yA",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/cL7uFe5RqHY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCd8brfz7deOR8GLhK_TrFCsNNtfQ",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "1:04:15"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "KPx3nRwbldE",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Run Gemma on Reachy Mini, an open source robot"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "38K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/KPx3nRwbldE/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLB6FTnBBqGIoxb0zr4WsixQdBe4zA",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/KPx3nRwbldE/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAPbjBx4zbuX3v2jPNAddCJ85NEMg",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "2:53"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "UlbokBsjMRY",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Gemini 3.5 Live Translate, Gemini in Xcode, and more! - Google Developer News June 2026"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "7.6K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/UlbokBsjMRY/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLApv12WiGZCT9JQbEeGfQGy5q869Q",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/UlbokBsjMRY/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAwgqwZHkHO8HpBmA90Ux0Mh4j0PQ",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "4:19"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "bfvS1UeAkN0",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Gemma Playground: Parallel Agents in Action"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "15K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/bfvS1UeAkN0/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDL8fWvlwazm5NTkf1YtVCTCO7yxg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/bfvS1UeAkN0/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCUBQXqRa8HYusd5zzOqzVQILe7aw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "1:31"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "O6499i4TFYA",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Gemma 4 and the AI Edge Gallery: On-Device AI Gets an Upgrade"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "7.4K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/O6499i4TFYA/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBeNuFmEzwx76nKLAdeG2Q2wAYAQg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/O6499i4TFYA/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDjbx23I1Ns1ETp7mfwqedlnYTHRw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "11:37"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "XkwQwBZ_Q8w",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Gemma Playground: AI Edge Gallery"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "28K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/XkwQwBZ_Q8w/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD6qUIOxV8KTKATgGrdirR9ZjoMmQ",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/XkwQwBZ_Q8w/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLANFK25ZxSPQtU0IJ5Uf9HCHw3RHg",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "3:21"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "o2rUT2GloV0",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "Run Gemma on the edge with the Coral Board"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "105K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/o2rUT2GloV0/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDmGUQk5FG_SsDd0hj9B6v8SWkXRg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/o2rUT2GloV0/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBGVyglUqBVb9_VtkfaxgJ6zxzAGw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "1:26"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "richItemRenderer": {
+                      "content": {
+                        "lockupViewModel": {
+                          "contentId": "xQcbwGS6Ahc",
+                          "contentType": "LOCKUP_CONTENT_TYPE_VIDEO",
+                          "metadata": {
+                            "lockupMetadataViewModel": {
+                              "title": {
+                                "content": "AIventure: Vibe Coding Journey"
+                              },
+                              "metadata": {
+                                "contentMetadataViewModel": {
+                                  "metadataRows": [
+                                    {
+                                      "metadataParts": [
+                                        {
+                                          "text": {
+                                            "content": "6.2K views"
+                                          }
+                                        },
+                                        {
+                                          "text": {
+                                            "content": "2 months ago"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          },
+                          "contentImage": {
+                            "thumbnailViewModel": {
+                              "image": {
+                                "sources": [
+                                  {
+                                    "url": "https://i.ytimg.com/vi/xQcbwGS6Ahc/hq720.jpg?sqp=-oaymwEjCOgCEMoBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCn5uDVQmyLWYgx4A1uB_w9lUhJzg",
+                                    "width": 360,
+                                    "height": 202
+                                  },
+                                  {
+                                    "url": "https://i.ytimg.com/vi/xQcbwGS6Ahc/hq720.jpg?sqp=-oaymwEXCNAFEJQDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLC-xn1DPAkRKCjHkvbayd2OnwbLxw",
+                                    "width": 720,
+                                    "height": 404
+                                  }
+                                ]
+                              },
+                              "overlays": [
+                                {
+                                  "thumbnailBottomOverlayViewModel": {
+                                    "badges": [
+                                      {
+                                        "thumbnailBadgeViewModel": {
+                                          "text": "1:20"
+                                        }
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "continuationItemRenderer": {
+                      "continuationEndpoint": {
+                        "continuationCommand": {
+                          "token": "4qmFsgLZCRIYVUNfeDVYRzFPVjJQNnVaWjVGU005VHR3GrwJOGdhRUJ4cUJCM3ItQmpyN0Jnb2tObVZsTmpVMlpqY3RNREF3TUMweVkyWmxMVGhpTWpNdE5UZ3lOREk1WXpReE1HUTRFdEFHUVdWUFdWTkxTVVV4VjNWMWVrRm5iMVIxVjFrNGNFcFhVRU55VW1WYWNFWjNWbVZvUjBnMFQwcHRWbEJVZUdwQ1ozSllhVEpRVGxkRVRYTnpiMEowTjI5UFNWQnRWbGM1ZUVaT05reEpZbXQwZUROUlZrZ3hUVmRoU1hSU1h6WnZSV3BrVldkV1kxaFFOa1JGY0cxdU9YUlJiVTVDTjBsalZrNURkREJRZVZONWREVXRVelpPU2taemFXdE1hRTE0VTFSTVFsTkdSMmQyUW5aUlRTMUJRbFpQVURscVMyODFNWEZETVRKMVQwZzBlVEZJUjBWc0xXcHlaVEprVW1wMGFtUjFlVmR0UkZkeVZIRnRZbmRzZEV3emJYSlRVbFZ2UVhwbFZFaDZWRFJEWjBsRWFFWmxhalpPVkVkRE4zQkphblZMTlhVMlYwSkhVVm90UlROZlpVNWhhbGR2VldkMVEyWlNWSHBhZGtkVlEyUTFRbTFVZDBOMlUyNUVXa1JQUVhoT2JtRnFRWEowUmxSQlFWZHphR1pHYzI5R1RFbDBaelZtYjJWSFYwTXlVVUpQU1Y5NlRrTnFUVFZYVFZCUmNscHZWR2gwV0hkNVJUY3RPVkV5T0ZGbUxUUjFWa010UlZKWFNFcFNOWFZSU25aamJtOW1XazVhTjJoeFowcHJPVXg0Y25FMmRrWXlkSEpmUVVsV2JtVmhiWEozTWxkaVMwdHdRbWRUWDJGRVpIbFlUVkppTFVscFpUWnBaR1ZDYlhCa1UwMDFhSG94ZDFGU2IzZHBkbXRaVUhGQlYxbDVWRk5IUjFkaVNteDZZbWhWY0doMFkyVk5UREF6ZEdzNFRtc3RiV1p2WldkV1gweHJUek01WmxFdFEwdEVjRlIyT1ZWSE9FdFhkMG96YkZabkxWcFdlRFppTmtKeFMwRTFNMFZ1Vmswd05WTkdZbVpZUTBsUmEwVTFiR1JhVmtSQ1VIRmlVbXBSUTFCdFgxRklaVVl0UzNJd1NEZzBaRVZmV0c4eGMyODVPVk5OVVdWVmNreDBZWEl6ZG5WVVJqQmZNazUwUWxwMk0wSnFTVzk1UXpCUFdtVlhkbWRpWTBneFJTMU1ka2x2ZVV4dFh6ZFVRakEwT1hsS1VESlFVR2RtYkRSblJEVndRM0JIVVRsQmRWTmlWbVEyZWpWcE9FVmtNMXBvVVZVNGFEVlpWVlJNWmpWVVlVeG1SRFJVVjJaS1JGaEhaVU5YYmkxU1pGRkRUR3BTZEZWSWMydEZNM05ZVTNOdmJucExZVzk1V25GdFVDMVFObWw2ZDNjeGMwOURTMWM0UjBwUGF6ZzNaM2cxZFRoc09IRlBhM1ZZWWxNd2RYUXpWMDlpTkdsMllqVjVSM2t5TkhabU5EVjJSSE50Um5SV1FrSnFaVFZVY0dsR1NYRnVjbU5RWVhvMlVtVmxRVU5KV21KaGQzcGpiV1YzV0ZRdFZVWjBSSFJGZG1oVFJqbHRNWGRoVjNvWUJBJTNEJTNE"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/shorts"
+                }
+              }
+            }
+          }
+        },
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/streams"
+                }
+              }
+            }
+          }
+        },
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/courses"
+                }
+              }
+            }
+          }
+        },
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/playlists"
+                }
+              }
+            }
+          }
+        },
+        {
+          "tabRenderer": {
+            "endpoint": {
+              "commandMetadata": {
+                "webCommandMetadata": {
+                  "url": "/@GoogleDevelopers/posts"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "channelMetadataRenderer": {
+      "externalId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "title": "Google for Developers",
+      "vanityChannelUrl": "http://www.youtube.com/@GoogleDevelopers"
+    }
+  }
+}

@@ -8,6 +8,11 @@ yt = RubyTube::YouTube.new(url)
 puts "#{yt.title} (#{yt.length}s) by #{yt.author} — #{yt.views} views"
 yt.streams.each { |s| puts "  #{s}" }
 
+channel = yt.channel
+recent = channel.videos.first(3)
+puts "channel: #{channel.name} (#{channel.channel_id}), latest: #{recent.map(&:title).inspect}"
+abort "NO CHANNEL VIDEOS" if recent.empty?
+
 video = yt.streams.best_video
 audio = yt.streams.best_audio
 puts "best video: #{video}\nbest audio: #{audio}"

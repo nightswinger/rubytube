@@ -4,7 +4,11 @@ require "tmpdir"
 require "fileutils"
 require_relative "../lib/rubytube"
 
-FIXTURE = JSON.parse(File.read(File.expand_path("fixtures/player_response.json", __dir__)))
+def fixture(name) = JSON.parse(File.read(File.expand_path("fixtures/#{name}.json", __dir__), encoding: "utf-8"))
+
+FIXTURE = fixture("player_response")
+CHANNEL_PAGE = fixture("channel_page")
+BROWSE_CONTINUATION = fixture("browse_continuation")
 
 def fixture_youtube
   yt = RubyTube::YouTube.new("jNQXAC9IVRw")
@@ -149,5 +153,78 @@ class AvailabilityTest < Minitest::Test
     yt.instance_variable_set(:@innertube, innertube)
     error = assert_raises(RubyTube::VideoUnavailable) { yt.title }
     assert_equal "LOGIN_REQUIRED", error.status
+  end
+end
+
+class ChannelTest < Minitest::Test
+  def setup
+    @channel = RubyTube::Channel.new("https://www.youtube.com/@GoogleDevelopers/videos")
+    @channel.instance_variable_set(:@initial_data, CHANNEL_PAGE)
+    stub_browse { |calls| calls.size == 1 ? BROWSE_CONTINUATION : {} } # one continuation, then a final empty page
+  end
+
+  def stub_browse(&pages)
+    @browse_calls = calls = []
+    @channel.instance_variable_get(:@innertube).define_singleton_method(:browse) do |continuation:, visitor_data:|
+      calls << continuation
+      pages.call(calls)
+    end
+  end
+
+  def test_extracts_channel_ref_from_common_shapes
+    {
+      "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw" => "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw/videos" => "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "UC_x5XG1OV2P6uZZ5FSM9Ttw" => "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+      "https://www.youtube.com/@GoogleDevelopers" => "@GoogleDevelopers",
+      "https://www.youtube.com/@Google.Developers/shorts" => "@Google.Developers",
+      "@GoogleDevelopers" => "@GoogleDevelopers",
+      "https://www.youtube.com/@%E6%97%A5%E6%9C%AC%E8%AA%9E/videos" => "@日本語",
+      "@日本語" => "@日本語"
+    }.each { |url, ref| assert_equal ref, RubyTube::Channel.extract_channel_ref(url), url }
+    assert_raises(RubyTube::ExtractError) { RubyTube::Channel.extract_channel_ref("https://example.com/") }
+  end
+
+  def test_channel_metadata
+    assert_equal "UC_x5XG1OV2P6uZZ5FSM9Ttw", @channel.channel_id
+    assert_equal "Google for Developers", @channel.name
+  end
+
+  def test_first_page_needs_no_browse_call
+    videos = @channel.videos.first(3)
+    assert_equal 3, videos.size
+    assert_empty @browse_calls
+
+    first = videos.first
+    assert_equal "CBzLIKfWpdg", first.video_id
+    assert_equal "Celebrating one billion Gemma downloads", first.title
+    assert_equal 56, first.length
+    assert_equal "16K views", first.view_count_text
+    assert_equal "2 days ago", first.published_text
+    assert_match %r{\Ahttps://i\.ytimg\.com/vi/CBzLIKfWpdg/}, first.thumbnail_url
+    assert_equal "https://www.youtube.com/watch?v=CBzLIKfWpdg", first.url
+    assert_equal "CBzLIKfWpdg", first.to_youtube.video_id
+  end
+
+  def test_follows_continuations_to_the_last_page
+    videos = @channel.videos.to_a
+    assert_equal 60, videos.size # page 1 (30) + one continuation (30)
+    assert_equal 60, videos.map(&:video_id).uniq.size
+    assert_equal 2, @browse_calls.size
+    assert(videos.all? { |v| v.length.is_a?(Integer) && v.title })
+
+    collab = videos.find { |v| v.video_id == "TNwKs39uSVk" } # metadata row 0 holds the collaborator names
+    assert_equal "187K views", collab.view_count_text
+    assert_equal "2 months ago", collab.published_text
+  end
+
+  def test_repeated_continuation_token_terminates
+    stub_browse { BROWSE_CONTINUATION } # YouTube keeps handing back the same token
+    assert_equal 90, @channel.videos.count
+    assert_equal 2, @browse_calls.size
+  end
+
+  def test_youtube_channel_shortcut
+    assert_equal "UC4QobU6STFB0P71PMvOGN5A", fixture_youtube.channel.instance_variable_get(:@ref)
   end
 end
