@@ -32,11 +32,20 @@ module RubyTube
       gl: "US"
     }.freeze
 
-    # Continuation page of a channel/playlist listing. visitor_data comes from the page's ytInitialData.
-    def browse(continuation:, visitor_data:)
-      post("browse",
-           { context: { client: WEB_CLIENT_CONTEXT.merge(visitorData: visitor_data) }, continuation: },
-           client_id: WEB_CLIENT_ID, client_version: WEB_CLIENT_VERSION, visitor_data:)
+    # Channel/playlist listing: first page by browse_id (+ params), later pages by continuation.
+    # visitor_data (from the previous response) is optional but keeps pagination consistent.
+    def browse(continuation: nil, browse_id: nil, params: nil, visitor_data: nil)
+      client = visitor_data ? WEB_CLIENT_CONTEXT.merge(visitorData: visitor_data) : WEB_CLIENT_CONTEXT
+      body = { context: { client: }, continuation:, browseId: browse_id, params: }.compact
+      post("browse", body, client_id: WEB_CLIENT_ID, client_version: WEB_CLIENT_VERSION, visitor_data:)
+    end
+
+    # Continuation token of a listing item, or nil. YouTube has used three shapes for it.
+    def self.continuation_token(item)
+      endpoint = item.dig("continuationItemRenderer", "continuationEndpoint") ||
+                 item.dig("continuationItemViewModel", "continuationCommand", "innertubeCommand") or return
+      [endpoint, *endpoint.dig("commandExecutorCommand", "commands")]
+        .filter_map { |command| command.dig("continuationCommand", "token") }.first
     end
 
     def player(video_id)
