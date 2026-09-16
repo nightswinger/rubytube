@@ -50,7 +50,7 @@ channel.videos.first(5).map(&:title)
 channel.videos.take_while { |v| v.published_text.end_with?("days ago") }.to_a
 channel.videos.to_a                                       # every video on the Videos tab
 
-video = channel.videos.first                              # RubyTube::ChannelVideo
+video = channel.videos.first                              # RubyTube::VideoItem
 video.video_id; video.title; video.length                 # length in seconds
 video.view_count_text; video.published_text               # "16K views", "2 days ago" (as YouTube shows them)
 video.thumbnail_url; video.url
@@ -62,6 +62,22 @@ yt.channel                                                # Channel of a video's
 channel.videos.each { |v| v.to_youtube.download(output_path: "~/Movies") rescue RubyTube::VideoUnavailable }
 ```
 
+### Playlists
+
+```ruby
+playlist = RubyTube::Playlist.new("https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H")  # also PL..., watch?v=...&list=...
+playlist.title              # => "Compressor Head"
+playlist.length             # => 9 (videos)
+playlist.views              # => 80317
+playlist.last_updated_text  # => "Feb 23, 2026" or "3 days ago" (as YouTube shows it)
+playlist.owner; playlist.owner_id; playlist.channel   # uploader name, UC..., and its Channel
+playlist.description; playlist.thumbnail_url; playlist.url
+
+# Same lazy VideoItem enumeration as Channel#videos; private/deleted entries are listed when YouTube shows them
+playlist.videos.first(5).map(&:title)
+playlist.videos.each { |v| v.to_youtube.download(output_path: "~/Movies") rescue RubyTube::VideoUnavailable }
+```
+
 `Stream#download` writes a single track. Progressive (video+audio in one file) formats
 are no longer served in a downloadable form by YouTube, so they are not exposed.
 
@@ -70,4 +86,6 @@ are no longer served in a downloadable form by YouTube, so they are not exposed.
 ```sh
 ruby test/rubytube_test.rb   # offline tests (recorded innertube fixture)
 ruby scripts/smoke.rb        # live smoke test against real YouTube (needs ffmpeg)
+ruby scripts/channel.rb URL  # live check of Channel listing
+ruby scripts/playlist.rb URL # live check of Playlist listing
 ```

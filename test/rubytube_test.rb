@@ -9,6 +9,8 @@ def fixture(name) = JSON.parse(File.read(File.expand_path("fixtures/#{name}.json
 FIXTURE = fixture("player_response")
 CHANNEL_PAGE = fixture("channel_page")
 BROWSE_CONTINUATION = fixture("browse_continuation")
+PLAYLIST_BROWSE = fixture("playlist_browse")
+PLAYLIST_CONTINUATION = fixture("playlist_continuation")
 
 def fixture_youtube
   yt = RubyTube::YouTube.new("jNQXAC9IVRw")
@@ -226,5 +228,108 @@ class ChannelTest < Minitest::Test
 
   def test_youtube_channel_shortcut
     assert_equal "UC4QobU6STFB0P71PMvOGN5A", fixture_youtube.channel.instance_variable_get(:@ref)
+  end
+end
+
+class PlaylistTest < Minitest::Test
+  def setup
+    @playlist = RubyTube::Playlist.new("https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H")
+    @playlist.instance_variable_set(:@initial_data, PLAYLIST_BROWSE)
+    stub_browse { |calls| calls.size == 1 ? PLAYLIST_CONTINUATION : {} }
+  end
+
+  def stub_browse(&pages)
+    @browse_calls = calls = []
+    @playlist.instance_variable_get(:@innertube).define_singleton_method(:browse) do |**kwargs|
+      calls << kwargs
+      pages.call(calls)
+    end
+  end
+
+  def test_extracts_playlist_id_from_common_shapes
+    {
+      "https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H" => "PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H",
+      "https://www.youtube.com/watch?v=Eb7rzMxHyOk&list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H&index=1" => "PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H",
+      "https://music.youtube.com/playlist?list=OLAK5uy_kX7ZQd4mYQq0bPZLvK3f9FZrZQ7sKUbJc" => "OLAK5uy_kX7ZQd4mYQq0bPZLvK3f9FZrZQ7sKUbJc",
+      "UU_x5XG1OV2P6uZZ5FSM9Ttw" => "UU_x5XG1OV2P6uZZ5FSM9Ttw",
+      "PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H" => "PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H"
+    }.each { |url, id| assert_equal id, RubyTube::Playlist.extract_playlist_id(url), url }
+    ["jNQXAC9IVRw", "https://www.youtube.com/watch?v=jNQXAC9IVRw", "UC_x5XG1OV2P6uZZ5FSM9Ttw"].each do |bad|
+      assert_raises(RubyTube::ExtractError, bad) { RubyTube::Playlist.extract_playlist_id(bad) }
+    end
+  end
+
+  def test_metadata
+    assert_equal "Compressor Head", @playlist.title
+    assert_match(/\A6 episode video series/, @playlist.description.sub(/\ACompressor Head is a /, ""))
+    assert_equal 9, @playlist.length
+    assert_equal 80_317, @playlist.views
+    assert_equal "Feb 23, 2026", @playlist.last_updated_text
+    assert_equal "Google for Developers", @playlist.owner
+    assert_equal "UC_x5XG1OV2P6uZZ5FSM9Ttw", @playlist.owner_id
+    assert_equal "UC_x5XG1OV2P6uZZ5FSM9Ttw", @playlist.channel.instance_variable_get(:@ref)
+    assert_match %r{\Ahttps://i\.ytimg\.com/vi/Eb7rzMxHyOk/}, @playlist.thumbnail_url
+    assert_equal "https://www.youtube.com/playlist?list=PLOU2XLYxmsIJGErt5rrCqaSGTMyyqNt2H", @playlist.url
+  end
+
+  def test_metadata_falls_back_to_page_header_without_sidebar
+    @playlist.instance_variable_set(:@initial_data, PLAYLIST_BROWSE.reject { |k, _| k == "sidebar" })
+    assert_equal 9, @playlist.length
+    assert_equal 80_317, @playlist.views
+    assert_nil @playlist.last_updated_text # header rows carry no date
+    assert_equal "Google for Developers", @playlist.owner
+    assert_equal "UC_x5XG1OV2P6uZZ5FSM9Ttw", @playlist.owner_id
+    assert_match %r{\Ahttps://i\.ytimg\.com/vi/Eb7rzMxHyOk/}, @playlist.thumbnail_url # microformat
+  end
+
+  def test_first_page_needs_no_browse_call
+    videos = @playlist.videos.first(9)
+    assert_equal 9, videos.size
+    assert_empty @browse_calls
+
+    first = videos.first
+    assert_instance_of RubyTube::VideoItem, first
+    assert_equal "Eb7rzMxHyOk", first.video_id
+    assert_equal "Introducing Compressor Head", first.title
+    assert_equal 100, first.length
+    assert_equal "45K views", first.view_count_text
+    assert_equal "12 years ago", first.published_text
+  end
+
+  def test_follows_sibling_and_trailing_continuations
+    videos = @playlist.videos.to_a
+    assert_equal 12, videos.size # first page (9, continuation as a sibling section) + one continuation page (3, trailing item)
+    assert_equal 12, videos.map(&:video_id).uniq.size
+    assert_equal 2, @browse_calls.size
+    assert_match(/\A4qmFsgJb/, @browse_calls.first[:continuation])
+  end
+
+  def test_repeated_continuation_token_terminates
+    stub_browse { PLAYLIST_CONTINUATION }
+    assert_equal 15, @playlist.videos.count
+    assert_equal 2, @browse_calls.size
+  end
+
+  def test_missing_playlist_raises_with_youtube_alert
+    playlist = RubyTube::Playlist.new("PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+    playlist.instance_variable_get(:@innertube).define_singleton_method(:browse) do |**|
+      { "alerts" => [{ "alertRenderer" => { "type" => "ERROR", "text" => { "runs" => [{ "text" => "The playlist does not exist." }] } } }] }
+    end
+    error = assert_raises(RubyTube::ExtractError) { playlist.title }
+    assert_equal "playlist PLxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx: The playlist does not exist.", error.message
+  end
+end
+
+class ContinuationTokenTest < Minitest::Test
+  def test_three_shapes_youtube_has_used
+    assert_equal "a", RubyTube::InnerTube.continuation_token(
+      { "continuationItemRenderer" => { "continuationEndpoint" => { "continuationCommand" => { "token" => "a" } } } })
+    assert_equal "b", RubyTube::InnerTube.continuation_token(
+      { "continuationItemViewModel" => { "continuationCommand" => { "innertubeCommand" => { "continuationCommand" => { "token" => "b" } } } } })
+    assert_equal "c", RubyTube::InnerTube.continuation_token(
+      { "continuationItemRenderer" => { "continuationEndpoint" => { "commandExecutorCommand" => { "commands" => [
+        { "other" => {} }, { "continuationCommand" => { "token" => "c" } }
+      ] } } } })
+    assert_nil RubyTube::InnerTube.continuation_token({ "lockupViewModel" => {} })
   end
 end
