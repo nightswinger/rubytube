@@ -81,6 +81,25 @@ playlist.videos.each { |v| v.to_youtube.download(output_path: "~/Movies") rescue
 `Stream#download` writes a single track. Progressive (video+audio in one file) formats
 are no longer served in a downloadable form by YouTube, so they are not exposed.
 
+## Command line
+
+`gem install rubytube` also installs a `rubytube` command:
+
+```sh
+rubytube https://www.youtube.com/watch?v=jNQXAC9IVRw          # best video + audio, muxed -> ./Me at the zoo.mp4
+rubytube URL -o ~/Movies -r 720                               # save elsewhere, cap resolution
+rubytube URL -a                                               # audio only (m4a, no ffmpeg needed)
+rubytube URL --container webm                                 # vp9 + opus
+rubytube URL -l                                               # list streams
+rubytube URL --itag 140                                       # one raw track, no muxing
+rubytube https://www.youtube.com/playlist?list=PL...          # every video in a playlist
+rubytube https://www.youtube.com/@GoogleDevelopers -a         # every video on a channel
+```
+
+Playlist and channel urls apply the same options to each video; failures are reported and skipped,
+and the exit status is 1 if any video failed. A `watch?v=...&list=...` url is treated as the single
+video; pass the `playlist?list=` url or the bare `PL...` id for the whole playlist.
+
 ## Development
 
 ```sh
@@ -88,4 +107,5 @@ ruby test/rubytube_test.rb   # offline tests (recorded innertube fixture)
 ruby scripts/smoke.rb        # live smoke test against real YouTube (needs ffmpeg)
 ruby scripts/channel.rb URL  # live check of Channel listing
 ruby scripts/playlist.rb URL # live check of Playlist listing
+ruby exe/rubytube URL -l     # CLI against real YouTube
 ```

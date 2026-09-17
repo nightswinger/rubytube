@@ -333,3 +333,42 @@ class ContinuationTokenTest < Minitest::Test
     assert_nil RubyTube::InnerTube.continuation_token({ "lockupViewModel" => {} })
   end
 end
+
+require "minitest/mock"
+require "stringio"
+require_relative "../lib/rubytube/cli"
+
+class CLITest < Minitest::Test
+  def run_cli(*argv)
+    out, err = StringIO.new, StringIO.new
+    status = RubyTube::YouTube.stub(:new, fixture_youtube) { RubyTube::CLI.run(argv, out:, err:) }
+    [status, out.string, err.string]
+  end
+
+  def test_list_prints_title_and_streams
+    status, out, err = run_cli("jNQXAC9IVRw", "-l")
+    assert_equal 0, status
+    assert_equal "", err
+    lines = out.lines
+    assert_equal "Me at the zoo\n", lines.first
+    assert_equal fixture_youtube.streams.size, lines.size - 1
+    assert(lines.drop(1).all? { |l| l.start_with?("#<RubyTube::Stream itag=") })
+  end
+
+  def test_rejects_unknown_url_and_bad_option
+    status, _, err = run_cli("https://example.com/")
+    assert_equal 1, status
+    assert_match(/could not recognize/, err)
+
+    status, _, err = run_cli("jNQXAC9IVRw", "--bogus")
+    assert_equal 1, status
+    assert_match(/invalid option/, err)
+  end
+
+  def test_version_and_help
+    assert_equal [0, "#{RubyTube::VERSION}\n"], run_cli("-V").first(2)
+    status, out, = run_cli
+    assert_equal 1, status
+    assert_match(/usage: rubytube/, out)
+  end
+end

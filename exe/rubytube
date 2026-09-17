@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require_relative "../lib/rubytube/cli"
+
+exit RubyTube::CLI.run(ARGV)
